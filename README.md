@@ -17,9 +17,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
-|image|string|null: false|
-
+|text|string|
+|image|string|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
