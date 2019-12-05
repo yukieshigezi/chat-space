@@ -5,12 +5,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|integer|null: false|
-
+|password|integer|null: false|
+|e-mail|string|null: false|
 
 ### Association
 - has_many :messages
-
+- has_many :groups, through: :group_users
+- has_many :group_users
 
 ## messagesテーブル
 
@@ -27,12 +28,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false|
+|name|string|null: false|
 
 
 
 ### Association
-has_many :messages
+- has_many :messages
+- has_many :group_users
+- has_many :users, through: :group_users
 
 ## group_users
 
@@ -43,12 +46,8 @@ has_many :messages
 
 
 ### Association
-- has_many :group, through: :group_users
-- has_many :user
-- has_many :user, through: :group_users
-- has_many :group
-
-
+- belongs_to user
+- belongs_to group
 
 
 
