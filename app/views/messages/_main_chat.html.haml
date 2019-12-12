@@ -2,36 +2,41 @@
   .content-top
     .text
       .group
-        techcamp
+        = @group.name
+
       .member
-        Member : suzuki
+
+        - @group.users.each do|user|
+          = user.name
+
     .btn 
-      %button.type Edit
+      .type
+      %button
+        = link_to 'edit', edit_group_path(@group.id) 
   .content-main
-    .user
-      .member
-        suzuki 
-      .date
-        2019/12/07(sut) 18:03:27
-    .title
-      お疲れ様です
- 
-    .user
-      .member
-        suzuki
-      .date
-        2019/12/08(sun) 07:35:08
-    .title  
-      おはようございます
+
+    = render @messages
+    .message
+      
   .content-bottom
     .form
-      .text-icon
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file"}
-          %input{type: "text"}
-      .btn-bottom
-        Send
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+    
+      
+      
+      -# .text-icon
+      -#   %label{class: "input-box__image"}
+      -#     = icon('fas', 'image')
+      -#     %input{type: "file"}
+      -#     %input{type: "text"}
+      -# .btn-bottom
+      -#   Send
 
 
      
