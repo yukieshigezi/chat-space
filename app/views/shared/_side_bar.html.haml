@@ -1,8 +1,7 @@
 .side-bar
   .side-bar-top
     .name
-      = current_user.name
-      suzuki    
+      = current_user.name  
     .icon
       = link_to new_group_path do
         %i.fas.fa-edit
@@ -12,9 +11,10 @@
   .side-bar-top2
     - current_user.groups.each do |group|
       .groups
-        = link_to messages_path ,class: 'groups-edit' do
+        = link_to group_messages_path(group.id) ,class: 'groups-edit' do
+          -#= link_to group_messages_path(group) do
           .group
             = group.name
           .message
-            メッセージがありません
+            = group.show_last_message
   

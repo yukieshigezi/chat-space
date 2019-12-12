@@ -35,20 +35,19 @@
            position: absolute;
            top: 40px;
            right: 40px;
-
+           }
+        
+        .btn a{
+            color: blue;
+            font-size: 20px;
         }
-
-        .btn button{
-          font-size: 20px;
-          color: lightskyblue;
-        }
-    
     }
 
     .content-main{
         height: calc(100vh - 180px);
         width: 100%;
         background-color: #fafafa;
+        overflow: scroll;
 
         .user{
             display: flex;
@@ -104,7 +103,7 @@
         
 
         }
-    .text-icon input{
+    .form__message {
        width: calc(100% - 115px);
        height: 50px;
        float: left;
@@ -112,7 +111,7 @@
        z-index: 1;
       }
 
-      .text-icon i{
+      .icon{
        position: absolute;
        right: 125px;
        top: 18px;
@@ -120,7 +119,7 @@
        z-index: 2;
       }
 
-    .btn-bottom{
+    .form__submit{
        height: 50px;
        width: 100px;
        background-color: lightskyblue;
