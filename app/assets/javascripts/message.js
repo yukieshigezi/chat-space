@@ -42,7 +42,6 @@ $(function(){
 
     $('#new_message').on('submit', function(e){
       e.preventDefault()
-      console.log("OK")
       var formData = new FormData(this);
       var url = $(this).attr('action');
       $.ajax({
@@ -54,7 +53,6 @@ $(function(){
         contentType: false,
       })
       .done(function(data){
-        console.log("")
         var html = buildHTML(data);
         $('.content-main').append(html);
         $('form')[0].reset();
