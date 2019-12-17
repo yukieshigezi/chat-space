@@ -1,18 +1,16 @@
 $(function(){
      
-  function buildHTML(message){
-
-
+  function buildHTML (message){
 
     if (message.image) {
       var html = 
-      `<div class="message, data-message-id="${message.id}">
+      `<div class="message" data-message-id="${message.id}">
          <div class="user">
           <div class="member">
           ${message.user}
           </div>
           <div class="date">
-          ${message.create}
+          ${message.created}
           </div>
         </div>
         <div class="title">
@@ -24,13 +22,13 @@ $(function(){
 
       else {
       var html = 
-      `<div class="message, data-message-id="${message.id}">
+      `<div class="message" data-message-id="${message.id}">
         <div class="user">
           <div class="member">
           ${message.user}
           </div>
           <div class="date">
-          ${message.create}
+          ${message.created}
           </div>
         </div>
         <div class="title">
@@ -82,10 +80,10 @@ $(function(){
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
       });
-      $('.messages').append(insertHTML);
+      $('.content-main').append(insertHTML);
+      $('.content-main').animate({ scrollTop: $('.content-main')[0].scrollHeight});
     })
     .fail(function() {
-      console.log('error');
     });
   };    
   setInterval(reloadMessages, 7000);
