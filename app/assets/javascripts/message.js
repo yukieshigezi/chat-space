@@ -5,18 +5,20 @@ $(function(){
     if (message.image) {
       var html = 
       `<div class="message" data-message-id="${message.id}">
-         <div class="user">
+        <div class="user">
           <div class="member">
-          ${message.user}
+            ${message.user}
           </div>
           <div class="date">
-          ${message.created}
+            ${message.created}
           </div>
-        </div>
+        </div> 
         <div class="title">
+          <p class="lower-message__content">
           ${message.content}
-          <img src='${message.image}'>
-          </div>
+          </p>
+          <img class="lower-message__image" src="${message.image}">
+        </div>
       </div>`
     }
 
